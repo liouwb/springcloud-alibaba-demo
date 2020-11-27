@@ -366,3 +366,19 @@ spring:
 5. 启动程序，验证配置是否生效
 
 ![image-20201127174307763](springcloud-alibaba.assets/image-20201127174307763.png)
+
+- 自定义nacos配置中心命令空间
+
+![image-20201127175635367](springcloud-alibaba.assets/image-20201127175635367.png)
+
+- 新增命令空间
+
+![image-20201127175748963](springcloud-alibaba.assets/image-20201127175748963.png)
+
+- 新增配置
+
+![image-20201127175929684](springcloud-alibaba.assets/image-20201127175929684.png)
+
+- 代码测试
+
+![image-20201127180326352](springcloud-alibaba.assets/image-20201127180326352.png)

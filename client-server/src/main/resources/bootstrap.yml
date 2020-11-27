@@ -5,7 +5,7 @@ spring:
   application:
     name: client-server
   profiles:
-    active: dev
+    active: dev1
 
   cloud:
     nacos:
@@ -16,5 +16,6 @@ spring:
         server-addr: localhost:8848
         # 配置文件后缀名为yaml
         # 指定远程nacos 配置文件名称 这里会自动加载provider-server-dev.yml
-        name: provider-server
+        name: client-server
         file-extension: yml
+        namespace: a640c0e1-178e-4de4-8525-6ec7647d11ff
