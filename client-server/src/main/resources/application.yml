@@ -1,0 +1,13 @@
+server:
+  port: 8802
+
+spring:
+  application:
+    name: client-server
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+
