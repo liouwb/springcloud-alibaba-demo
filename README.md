@@ -50,6 +50,7 @@
 ![image-20201127135831629](springcloud-alibaba.assets/image-20201127135831629.png)
 
 - 启动单机nacos服务`startup.cmd -m standalone`
+- 单机模式（standalone）和集群模式（cluster
 
 ![image-20201127140000901](springcloud-alibaba.assets/image-20201127140000901.png)
 
@@ -312,3 +313,56 @@ java -Dserver.port=8805 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject
 
 ![image-20201127151234150](springcloud-alibaba.assets/image-20201127151234150.png)
 
+
+
+## nacos配置中心
+
+1. 添加依赖
+
+```xml
+<dependency>
+    <groupId>com.alibaba.cloud</groupId>
+    <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+</dependency>
+```
+
+2. 在nacos中心添加配置文件
+
+![image-20201127173828375](springcloud-alibaba.assets/image-20201127173828375.png)
+
+2. 编写文件内容，并发布
+
+![image-20201127173931818](springcloud-alibaba.assets/image-20201127173931818.png)
+
+3. 查看配置文件列表信息
+
+![image-20201127174021439](springcloud-alibaba.assets/image-20201127174021439.png)
+
+4. 编写项目配置，从远程nacos获取配置文件 `bootstrap.yml`文件
+
+```yaml
+server:
+  port: 8802
+
+spring:
+  application:
+    name: client-server
+  profiles:
+    active: dev
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        # nacos地址
+        server-addr: localhost:8848
+        # 配置文件后缀名为yaml
+        # 指定远程nacos 配置文件名称 这里会自动加载provider-server-dev.yml
+        name: provider-server
+        file-extension: yml
+```
+
+5. 启动程序，验证配置是否生效
+
+![image-20201127174307763](springcloud-alibaba.assets/image-20201127174307763.png)

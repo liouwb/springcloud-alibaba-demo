@@ -1,0 +1,20 @@
+server:
+  port: 8802
+
+spring:
+  application:
+    name: client-server
+  profiles:
+    active: dev
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        # nacos地址
+        server-addr: localhost:8848
+        # 配置文件后缀名为yaml
+        # 指定远程nacos 配置文件名称 这里会自动加载provider-server-dev.yml
+        name: provider-server
+        file-extension: yml
